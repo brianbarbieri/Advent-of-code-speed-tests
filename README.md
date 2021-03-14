@@ -1,7 +1,8 @@
 # Advent of code speed benchmark
-This repository shows different speeds obtained from solutions to the advent of code competition that were gathered from the internet. All the solutions are written in Python 3.X and benchmarked with the timeit library on the on the following system:
+This repository shows different speeds obtained from completed solutions to the advent of code competition that were gathered from the internet. All the solutions are written in Python 3.X and benchmarked with the timeit library on the on the following system: <br/>
 Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz, 2808 Mhz, 4 Core(s), 8 Logical Processor(s)
 
+___
 
 ### TODO:
 - [ ] 2015
