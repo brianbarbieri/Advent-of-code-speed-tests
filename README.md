@@ -139,8 +139,8 @@ ___
     - [x] day 1
     - [x] day 2
     - [x] day 3
-    - [ ] day 4
-    - [ ] day 5
+    - [x] day 4
+    - [x] day 5
     - [ ] day 6
     - [ ] day 7
     - [ ] day 8

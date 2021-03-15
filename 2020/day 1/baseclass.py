@@ -1,12 +1,13 @@
 import timeit
 import json
-import os
+import os, sys
 
 class Solution:
 
     def __init__(self):
         self.REPO_OWNER = ""
         self.REPO_URL = ""
+        self.FILENAME = ""
         self.DAY = 1
         self.YEAR = 2020
 
@@ -52,20 +53,21 @@ class Solution:
             "time_part_1" : time_part1,
             "time_part_2" : time_part2,
             "time_mean" : (time_part1 + time_part2) / 2,
-            "url" : self.REPO_URL
+            "url" : self.REPO_URL,
+            "filename" : self.FILENAME
         }
 
         scores[self.REPO_OWNER] = repo_times
         with open(os.path.dirname(__file__) + '/scores.json', 'w') as f:
             json.dump(scores, f)
         
-        readmd = f'## Scoring for day {self.DAY} of the advent of code {self.YEAR}\n| Github repo | Score part 1 | Score part 2 |\n| ------------- | ------------- | ------------- |\n'
+        readmd = f'## Scoring for day {self.DAY} of the advent of code {self.YEAR}\n| Github repo | Score part 1 | Score part 2 | Filename |\n| ------------- | ------------- | ------------- | ------------- |\n'
 
         for w in sorted(scores, key=lambda x: scores[x]['time_mean']):
             sp1 = self.format_run_time(scores[w]['time_part_1'])
             sp2 = self.format_run_time(scores[w]['time_part_2'])
-            readmd += f"| [{w}]({scores[w]['url']}) | {sp1} | {sp2} |\n"
-
+            readmd += f"| [{w}]({scores[w]['url']}) | {sp1} | {sp2} | [{os.path.basename(scores[w]['filename'])}]({scores[w]['filename']}) |\n"
+        
         with open('README.md', 'w') as writer:
             writer.write(readmd)
         print("Saved run to README.md")

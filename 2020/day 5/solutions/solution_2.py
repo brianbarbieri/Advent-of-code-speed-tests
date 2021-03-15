@@ -10,6 +10,7 @@ class Solution_Repo(Solution):
         Solution.__init__(self)
         self.REPO_OWNER = "0xVector"
         self.REPO_URL = "https://github.com/0xVector/AdventOfCode2020"
+        self.FILENAME = "solutions/solution_2.py"
 
     def part_1(self):
         with open(os.path.dirname(__file__) + "/../input.txt", "r") as file:
@@ -78,13 +79,11 @@ class Solution_Repo(Solution):
             col = lower
             seat_id = row * 8 + col
             seats.append(seat_id)
-
         seats.sort()
 
         count = seats[0]
         for i in range(len(seats)):
             if count != seats[i]:
                 break
-
             count += 1
         return count

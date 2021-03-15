@@ -10,6 +10,7 @@ class Solution_Repo(Solution):
         Solution.__init__(self)
         self.REPO_OWNER = "0xVector"
         self.REPO_URL = "https://github.com/0xVector/AdventOfCode2020"
+        self.FILENAME = "solutions/solution_2.py"
 
     def part_1(self):
         with open(os.path.dirname(__file__) + "/../input.txt", "r") as file:
