@@ -2,8 +2,10 @@ import sys, os
 sys.path.append(os.path.abspath('../day 1'))
 from baseclass import Solution
 
-class Solution_Repo(Solution):
+# imports required for solution:
+import numpy as np
 
+class Solution_Repo(Solution):
 
     def __init__(self):
         self.REPO_OWNER = "brianbarbieri"
@@ -24,7 +26,6 @@ class Solution_Repo(Solution):
                 mini += 1
 
     def part_2(self):
-        import numpy as np
 
         with open(os.path.dirname(__file__) + "/../input.txt", "r") as r:
             data = np.array(sorted([int(p.replace("\n", "")) for p in r.readlines()]))
