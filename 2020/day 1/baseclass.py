@@ -54,6 +54,6 @@ class Solution:
             print(w)
             readmd += f"| [{w}]({scores[w]['url']}) | {scores[w]['time_part_1']} | {scores[w]['time_part_2']} |\n"
 
-        with open('READ.md', 'w') as writer:
+        with open('README.md', 'w') as writer:
             writer.write(readmd)
-        print("Saved run to READ.md")
+        print("Saved run to README.md")
