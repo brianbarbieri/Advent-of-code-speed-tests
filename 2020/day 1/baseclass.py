@@ -48,11 +48,23 @@ class Solution:
         with open(os.path.dirname(__file__) + '/scores.json', 'w') as f:
             json.dump(scores, f)
         
-        readmd = '## Scoring for day 1 of the advent of code 2020\n| Github repo | Score part 1 | Score part 2 |\n'
+        readmd = '## Scoring for day 1 of the advent of code 2020\n| Github repo | Score part 1 | Score part 2 |\n| ------------- | ------------- | ------------- |\n'
 
         for w in sorted(scores, key=lambda x: scores[x]['time_mean']):
-            print(w)
-            readmd += f"| [{w}]({scores[w]['url']}) | {scores[w]['time_part_1']} | {scores[w]['time_part_2']} |\n"
+            if scores[w]['time_part_2'] < 0.001:
+                sp1 = str(round(scores[w]['time_part_1'] *1000, 4)) + " (ms)"
+                sp2 = str(round(scores[w]['time_part_2'] *1000, 4)) + " (ms)"
+            elif scores[w]['time_part_2'] < 0.000001:
+                sp1 = str(round(scores[w]['time_part_1'] *1000000, 4)) + " (μs)"
+                sp2 = str(round(scores[w]['time_part_2'] *1000000, 4)) + " (μs)"
+            elif scores[w]['time_part_2'] < 0.000000001:
+                sp1 = str(round(scores[w]['time_part_1'] *1000000000, 4)) + " (ns)"
+                sp2 = str(round(scores[w]['time_part_2'] *1000000000, 4)) + " (ns)"
+            else:
+                sp1 = str(round(scores[w]['time_part_1'], 4)) + "(s)"
+                sp2 = str(round(scores[w]['time_part_2'], 4)) + "(s)"
+                
+            readmd += f"| [{w}]({scores[w]['url']}) | {sp1} | {sp2} |\n"
 
         with open('README.md', 'w') as writer:
             writer.write(readmd)
