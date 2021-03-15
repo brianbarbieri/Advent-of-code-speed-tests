@@ -8,6 +8,7 @@ from itertools import combinations
 class Solution_Repo(Solution):
 
     def __init__(self):
+        Solution.__init__(self)
         self.REPO_OWNER = "0xVector"
         self.REPO_URL = "https://github.com/0xVector/AdventOfCode2020"
 

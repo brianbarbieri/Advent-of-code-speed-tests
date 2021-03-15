@@ -8,6 +8,7 @@ import numpy as np
 class Solution_Repo(Solution):
 
     def __init__(self):
+        Solution.__init__(self)
         self.REPO_OWNER = "brianbarbieri"
         self.REPO_URL = "https://github.com/brianbarbieri/adventofcode2020"
 

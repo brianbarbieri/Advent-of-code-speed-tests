@@ -7,7 +7,7 @@ class Solution:
     def __init__(self):
         self.REPO_OWNER = ""
         self.REPO_URL = ""
-        self.DAY = 2
+        self.DAY = 1
         self.YEAR = 2020
 
     def part_1(self):
