@@ -41,7 +41,7 @@ class Solution:
         elif s <= 0.000001:
             return str(round(s *1000000000, 4)) + " (ns)"
         else:
-            return  str(round(s, 4)) + "(s)"
+            return  str(round(s, 4)) + " (s)"
 
 
     def save_times(self, time_part1, time_part2):
