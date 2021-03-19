@@ -148,8 +148,8 @@ ___
     - [ ] day 10
     - [ ] day 11
     - [ ] day 12
-    - [ ] day 13
-    - [ ] day 14
+    - [x] day 13
+    - [x] day 14
     - [x] day 15
     - [x] day 16
     - [ ] day 17
