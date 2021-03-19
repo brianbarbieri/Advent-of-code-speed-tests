@@ -17,7 +17,7 @@ class Solution:
     def part_2(self):
         pass
 
-    def assert_solution(self):
+    def assert_solution(self, number_of_runs=1000):
 
         with open(os.path.dirname(__file__) + '/solution.txt', "r") as r:
             solution_1, solution_2 = r.readline().split(",")
@@ -27,9 +27,9 @@ class Solution:
             assert solution_2 == str(self.part_2()), f"Answer incorrect: answer is {solution_2}, your answer is {str(self.part_2())}"
             print("Solutions to both parts of the problem are correct")
 
-            time_part1 = timeit.timeit(self.part_1, number=1000) / 1000
+            time_part1 = timeit.timeit(self.part_1, number=number_of_runs) / number_of_runs
             print(f"Finished timing part 1: {time_part1}")
-            time_part2 = timeit.timeit(self.part_2, number=1000) / 1000
+            time_part2 = timeit.timeit(self.part_2, number=number_of_runs) / number_of_runs
             print(f"Finished timing part 2: {time_part2}")
             self.save_times(time_part1, time_part2)
             

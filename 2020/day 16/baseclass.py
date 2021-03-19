@@ -8,7 +8,7 @@ class Solution:
         self.REPO_OWNER = ""
         self.REPO_URL = ""
         self.FILENAME = ""
-        self.DAY = 5
+        self.DAY = 16
         self.YEAR = 2020
 
     def part_1(self):
@@ -42,6 +42,7 @@ class Solution:
             return str(round(s *1000000000, 4)) + " (ns)"
         else:
             return  str(round(s, 4)) + "(s)"
+
 
     def save_times(self, time_part1, time_part2):
 
