@@ -3,7 +3,7 @@ sys.path.append(os.path.abspath('../day 12'))
 from baseclass import Solution
 
 # imports required for solution:
-from solutions.solution_1_cython import part_2
+from solutions.solution_1_cython import part_1, part_2
 
 class Solution_Repo(Solution):
 
@@ -17,42 +17,42 @@ class Solution_Repo(Solution):
         with open(os.path.dirname(__file__) + "/../input.txt", "r") as r:
             data = [l.replace("\n", "") for l in r.readlines()]
             instructions = [(d[0], int(d[1:])) for d in data]
+        return part_1(instructions)
+        # direction = {
+        #     0 : "N",
+        #     90 : "W",
+        #     180 : "S",
+        #     270 : "E"
+        # }
+        # x_s, y_s, a = 0, 0, 270
+        # for ins in instructions:
+        #     x, d = ins
 
-        direction = {
-            0 : "N",
-            90 : "W",
-            180 : "S",
-            270 : "E"
-        }
-        x_s, y_s, a = 0, 0, 270
-        for ins in instructions:
-            x, d = ins
+        #     if x in ["L",  "R"]:
+        #         if x == "L":
+        #             a += d
+        #         else:
+        #             a -= d
+        #         a %= 360
+        #     elif x == "F":
+        #         x = direction[a]
 
-            if x in ["L",  "R"]:
-                if x == "L":
-                    a += d
-                else:
-                    a -= d
-                a %= 360
-            elif x == "F":
-                x = direction[a]
+        #     if x == "N":
+        #         y_s += d
+        #     elif x == "W":
+        #         x_s += d
+        #     elif x == "S":
+        #         y_s -= d
+        #     elif x == "E":
+        #         x_s -= d
 
-            if x == "N":
-                y_s += d
-            elif x == "W":
-                x_s += d
-            elif x == "S":
-                y_s -= d
-            elif x == "E":
-                x_s -= d
-
-        return abs(x_s) + abs(y_s)
+        # return abs(x_s) + abs(y_s)
 
     def part_2(self):
         with open(os.path.dirname(__file__) + "/../input.txt", "r") as r:
             data = [l.replace("\n", "") for l in r.readlines()]
             instructions = [(d[0], int(d[1:])) for d in data]
-            return int(part_2(instructions))
+            return part_2(instructions)
 
         # x_w, y_w, x_s, y_s = 10, 1, 0, 0
         # for i, (ins) in enumerate(instructions):

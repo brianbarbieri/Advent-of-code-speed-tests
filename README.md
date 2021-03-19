@@ -147,7 +147,7 @@ ___
     - [ ] day 9
     - [ ] day 10
     - [ ] day 11
-    - [ ] day 12
+    - [x] day 12
     - [x] day 13
     - [x] day 14
     - [x] day 15
