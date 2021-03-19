@@ -1,9 +1,9 @@
 import sys, os
-sys.path.append(os.path.abspath('../day 1'))
+sys.path.append(os.path.abspath('../day 12'))
 from baseclass import Solution
 
 # imports required for solution:
-
+from solutions.solution_1_cython import part_2
 
 class Solution_Repo(Solution):
 
@@ -52,34 +52,35 @@ class Solution_Repo(Solution):
         with open(os.path.dirname(__file__) + "/../input.txt", "r") as r:
             data = [l.replace("\n", "") for l in r.readlines()]
             instructions = [(d[0], int(d[1:])) for d in data]
+            return int(part_2(instructions))
 
-        x_w, y_w, x_s, y_s = 10, 1, 0, 0
-        for i, (ins) in enumerate(instructions):
-            x, d = ins
-            if x == "L":
-                if d == 90:
-                    x_w, y_w = -y_w, x_w
-                elif d == 180:
-                    x_w, y_w = -x_w, -y_w
-                elif d == 270:
-                    x_w, y_w = y_w, -x_w
-            elif x == "R":
-                if d == 90:
-                    x_w, y_w = y_w, -x_w
-                elif d == 180:
-                    x_w, y_w = -x_w, -y_w
-                elif d == 270:
-                    x_w, y_w = -y_w, x_w
-            elif x == "F":
-                x_s += x_w * d
-                y_s += y_w * d
-            elif x == "N":
-                y_w += d
-            elif x == "W":
-                x_w -= d
-            elif x == "S":
-                y_w -= d
-            elif x == "E":
-                x_w += d
+        # x_w, y_w, x_s, y_s = 10, 1, 0, 0
+        # for i, (ins) in enumerate(instructions):
+        #     x, d = ins
+        #     if x == "L":
+        #         if d == 90:
+        #             x_w, y_w = -y_w, x_w
+        #         elif d == 180:
+        #             x_w, y_w = -x_w, -y_w
+        #         elif d == 270:
+        #             x_w, y_w = y_w, -x_w
+        #     elif x == "R":
+        #         if d == 90:
+        #             x_w, y_w = y_w, -x_w
+        #         elif d == 180:
+        #             x_w, y_w = -x_w, -y_w
+        #         elif d == 270:
+        #             x_w, y_w = -y_w, x_w
+        #     elif x == "F":
+        #         x_s += x_w * d
+        #         y_s += y_w * d
+        #     elif x == "N":
+        #         y_w += d
+        #     elif x == "W":
+        #         x_w -= d
+        #     elif x == "S":
+        #         y_w -= d
+        #     elif x == "E":
+        #         x_w += d
 
-        return abs(x_s) + abs(y_s)
+        # return abs(x_s) + abs(y_s)
