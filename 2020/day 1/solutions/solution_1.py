@@ -4,6 +4,7 @@ from baseclass import Solution
 
 # imports required for solution:
 import numpy as np
+from solutions.solution_1_cython import part_1
 
 class Solution_Repo(Solution):
 
@@ -16,16 +17,16 @@ class Solution_Repo(Solution):
     def part_1(self):
         with open(os.path.dirname(__file__) + "/../input.txt", "r") as r:
             data = sorted([int(p.replace("\n", "")) for p in r.readlines()])
-
-        mini = 0
-        maxi = -1
-        while mini != len(data):
-            if data[mini] + data[maxi] == 2020:
-                return data[mini] * data[maxi]
-            elif data[mini] + data[maxi] > 2020:
-                maxi -= 1
-            else:
-                mini += 1
+        return part_1(data)
+        # mini = 0
+        # maxi = -1
+        # while mini != len(data):
+        #     if data[mini] + data[maxi] == 2020:
+        #         return data[mini] * data[maxi]
+        #     elif data[mini] + data[maxi] > 2020:
+        #         maxi -= 1
+        #     else:
+        #         mini += 1
 
     def part_2(self):
 
