@@ -1,12 +1,16 @@
-# full function
 cimport numpy as np
 import numpy as np
+cimport cython
 
-cpdef np.ndarray change_states_p1(np.ndarray a):
-    cdef np.ndarray new_state
+ctypedef np.int_t DTYPE_t
+
+@cython.boundscheck(False) # turn off bounds-checking for entire function
+@cython.wraparound(False)  # turn off negative index wrapping for entire function
+cpdef np.ndarray[DTYPE_t, ndim=3] change_states_p1(np.ndarray[DTYPE_t, ndim=3] a):
+    cdef np.ndarray[DTYPE_t, ndim=3] new_state
     cdef int i, j, k
 
-    new_state = np.zeros((a.shape[0], a.shape[1], a.shape[2]))
+    new_state = np.zeros((a.shape[0], a.shape[1], a.shape[2]), dtype=np.int)
     for i in range(a.shape[0]):
         for j in range(a.shape[1]):
             for k in range(a.shape[2]):
@@ -23,11 +27,13 @@ cpdef np.ndarray change_states_p1(np.ndarray a):
                         new_state[i,j,k] = 0
     return new_state
 
-cpdef np.ndarray change_states_p2(np.ndarray a):
-    cdef np.ndarray new_state
+@cython.boundscheck(False) # turn off bounds-checking for entire function
+@cython.wraparound(False)  # turn off negative index wrapping for entire function
+cpdef np.ndarray[DTYPE_t, ndim=4] change_states_p2(np.ndarray[DTYPE_t, ndim=4] a):
+    cdef np.ndarray[DTYPE_t, ndim=4] new_state
     cdef int i, j, k, l
 
-    new_state = np.zeros((a.shape[0], a.shape[1], a.shape[2], a.shape[3]))
+    new_state = np.zeros((a.shape[0], a.shape[1], a.shape[2], a.shape[3]), dtype=np.int)
     for i in range(a.shape[0]):
         for j in range(a.shape[1]):
             for k in range(a.shape[2]):

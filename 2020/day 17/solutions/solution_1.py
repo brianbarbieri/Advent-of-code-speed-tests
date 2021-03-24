@@ -20,7 +20,7 @@ class Solution_Repo(Solution):
             source = np.array([[[int(elem) for elem in l.replace(".", "0").replace("#", "1")] for l in data]])
 
         for c in range(6):
-            next_cycle = np.zeros((source.shape[0]+2, source.shape[1]+2, source.shape[2]+2))
+            next_cycle = np.zeros((source.shape[0]+2, source.shape[1]+2, source.shape[2]+2), dtype=np.int)
             next_cycle[1:-1,1:-1,1:-1] = source
             source = change_states_p1(next_cycle)
         return int(source.sum())
@@ -31,7 +31,7 @@ class Solution_Repo(Solution):
             source = np.array([[[[int(elem) for elem in l.replace(".", "0").replace("#", "1")] for l in data]]])
 
         for c in range(6):
-            next_cycle = np.zeros((source.shape[0]+2, source.shape[1]+2, source.shape[2]+2, source.shape[3]+2))
+            next_cycle = np.zeros((source.shape[0]+2, source.shape[1]+2, source.shape[2]+2, source.shape[3]+2), dtype=np.int)
             next_cycle[1:-1,1:-1,1:-1,1:-1] = source
             source = change_states_p2(next_cycle)
         return int(source.sum())
